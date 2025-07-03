@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peter Truncale - AI Product Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background: white;
+        }
+        
+        /* Container for consistent max-width */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a202c;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .nav-links a:hover {
+            color: #1a202c;
+        }
+        
+        .nav-links .linkedin {
+            color: #4a5568;
+            font-weight: 500;
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-white {
+            background: white;
+        }
+        
+        .section-light-gray {
+            background: #f8f9fa;
+        }
+        
+        .section-dark {
+            background: #1a202c;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-image {
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 1;
+            background: #f1f5f9;
+            border-radius: 20px;
+            border: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        .hero-content h1 {
+            font-size: 36px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+        
+        .hero-content .title-highlight {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            display: inline;
+        }
+        
+        .experience-list {
+            margin-top: 40px;
+        }
+        
+        .experience-list h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+        
+        .experience-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .experience-list li {
+            font-size: 16px;
+            color: #4a5568;
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .experience-list li.att-second {
+            margin-bottom: 12px;
+        }
+        
+        .experience-list .company-name {
+            font-weight: 600;
+            color: #1a202c;
+        }
+        
+        .experience-list li::before {
+            content: "•";
+            color: #1a202c;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            width: 15px;
+        }
+        
+        /* About Section */
+        .about {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        .about-content {
+            font-size: 18px;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+        
+        .about-content p {
+            margin-bottom: 24px;
+        }
+        
+        .about-visual {
+            width: 100%;
+            height: 300px;
+            background: #f1f5f9;
+            border-radius: 16px;
+            border: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #64748b;
+            font-weight: 500;
+            margin: auto;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-dark .section-title {
+            color: white;
+        }
+        
+        /* Work Section */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 20px;
+        }
+        
+        .work-item {
+            text-align: center;
+        }
+        
+        .work-logo {
+            width: 100%;
+            height: 200px;
+            background: #2d3748;
+            border-radius: 12px;
+            border: 2px solid #4a5568;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #a0aec0;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .work-description {
+            color: #a0aec0;
+            font-size: 14px;
+            line-height: 1.6;
+            text-align: left;
+        }
+        
+        /* Side Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 20px;
+        }
+        
+        .project-item {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .project-item:hover {
+            transform: translateY(-2px);
+        }
+        
+        .project-visual {
+            width: 100%;
+            height: 200px;
+            background: #f1f5f9;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        .project-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            height: calc(100% - 200px);
+        }
+        
+        .project-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        
+        .project-description {
+            color: #4a5568;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .view-project-btn {
+            display: inline-block;
+            background: #1a202c;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        .view-project-btn:hover {
+            background: #2d3748;
+            transform: translateY(-1px);
+        }
+        
+
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            .hero-image {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+            
+            .about {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .work-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .nav-content {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 28px;
+                line-height: 1.3;
+            }
+            
+            .hero-image {
+                max-width: 200px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+                margin-bottom: 35px;
+            }
+            
+            .about-content {
+                font-size: 16px;
+            }
+            
+            .work-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .experience-list h3 {
+                font-size: 18px;
+            }
+            
+            .experience-list li {
+                font-size: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 24px;
+            }
+            
+            .hero-image {
+                max-width: 180px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .nav-links a {
+                font-size: 14px;
+            }
+            
+            .logo {
+                font-size: 20px;
+            }
+            
+            .project-content {
+                padding: 20px;
+            }
+            
+            .work-description {
+                font-size: 13px;
+            }
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Scroll Animation Styles */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .scroll-animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .scroll-animate {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo" onclick="scrollToTop()">Peter Truncale</div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#work">Work</a>
+                    <a href="#projects">Side Projects</a>
+                    <a href="https://linkedin.com/in/petertruncale" target="_blank" class="linkedin">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section - White Background -->
+    <section class="section section-white scroll-animate" id="hero">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-image">
+                    Profile Picture Placeholder
+                </div>
+                <div class="hero-content">
+                    <h1>Hello! I'm Peter, an outcome-driven <span class="title-highlight">Product Manager</span> passionate about product discovery and AI innovation 🤖</h1>
+                    
+                    <div class="experience-list">
+                        <h3>Experience</h3>
+                        <ul>
+                            <li><span class="company-name">The Meet Group</span> - Product Manager (2024 - Present)</li>
+                            <li><span class="company-name">AT&T</span> - Senior Product Manager (2024)</li>
+                            <li class="att-second"><span class="company-name">AT&T</span> - Product Manager (2022 - 2024)</li>
+                            <li><span class="company-name">Johnson & Johnson</span> (via Brooksource) - (2022)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section - Light Gray Background -->
+    <section class="section section-light-gray scroll-animate" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about">
+                <div class="about-content">
+                    <p>
+                        I'm passionate about solving real problems through an outcome-focused lens and leveraging proven product discovery techniques that eliminate guesswork in innovation. With a background in statistics, I bring an analytical mindset to discover unmet customer and market needs, establish and track product metrics, and lead experimentation and optimization efforts.
+                    </p>
+                    <p>
+                        I leverage AI tools as step 0 in my product work. AI products I have built include agentic AI systems and an AI-powered skincare recommendation tool. For my current product work, I leverage AI as a thought partner, use Model Context Protocol for automation, conduct AI-powered competitive analysis and market research, build AI prototypes, and more.
+                    </p>
+                    <p>
+                        Outside of work, I like to play with my dogs, travel, and try new foods.
+                    </p>
+                </div>
+                <div class="about-visual">
+                    Visual Placeholder
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Work Section - Dark Background -->
+    <section class="section section-dark scroll-animate" id="work">
+        <div class="container">
+            <h2 class="section-title">My Work</h2>
+            <div class="work-grid">
+                <div class="work-item">
+                    <div class="work-logo">The Meet Group Logo</div>
+                    <div class="work-description">
+                        Product Manager for a conversational livestreaming product with ~500k DAU. Evangelized and implemented a north star metric that aligned the product organization. Initiated and led an information architecture redesign to improve user experience and engagement.
+                    </div>
+                </div>
+                
+                <div class="work-item">
+                    <div class="work-logo">AT&T Logo</div>
+                    <div class="work-description">
+                        Product Manager for payments in the mobile app. Improved time to pay, increased payment conversion rates, and reduced customer service call rates through strategic product enhancements and user experience optimizations.
+                    </div>
+                </div>
+                
+                <div class="work-item">
+                    <div class="work-logo">Johnson & Johnson Logo</div>
+                    <div class="work-description">
+                        Worked on an internal procurement ecommerce platform. Successfully improved the UMUX metric (Usability Metric for User Experience) through user research and iterative design improvements.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Side Projects Section - Light Gray Background -->
+    <section class="section section-light-gray scroll-animate" id="projects">
+        <div class="container">
+            <h2 class="section-title">Side Projects</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <div class="project-visual">Project Screenshot</div>
+                    <div class="project-content">
+                        <h3 class="project-name">AI Skincare Recommendation Tool</h3>
+                        <p class="project-description">
+                            An AI-powered skincare tool that focuses on strategic additions. Provides RAG-powered intelligent recommendations based on skin analysis and personalized user preferences.
+                        </p>
+                        <a href="project1.html" class="view-project-btn">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-visual">Project Screenshot</div>
+                    <div class="project-content">
+                        <h3 class="project-name">n8n Skincare Research Workflow</h3>
+                        <p class="project-description">
+                            Multi-agent system that automates skincare product research, ingredient analysis, and recommendation generation using AI workflows.
+                        </p>
+                        <a href="project2.html" class="view-project-btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Scroll animation functionality
+        const observerOptions = {
+            threshold: 0.6,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    entry.target.classList.add('animated');
+                    // Stop observing this element since we don't want re-animation
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Start observing when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
